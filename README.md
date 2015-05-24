@@ -22,7 +22,7 @@ Usage
 ====
 
     $jsons = DB::table('tests')
-                ->orWhere(function($query){
+                ->where(function($query){
 
                     JsonWhere::query($query)
                         ->column('json')
