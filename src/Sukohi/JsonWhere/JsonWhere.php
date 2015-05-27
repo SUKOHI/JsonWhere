@@ -28,7 +28,8 @@ class JsonWhere {
 
         if($type == 'int') {
 
-            $this->_query->orWhere($this->_column, 'LIKE', '%['. $value .',%')
+            $this->_query->orWhere($this->_column, 'LIKE', '%['. $value .']%')
+                ->orWhere($this->_column, 'LIKE', '%['. $value .',%')
                 ->orWhere($this->_column, 'LIKE', '%,'. $value .',%')
                 ->orWhere($this->_column, 'LIKE', '%,'. $value .']%');
 
