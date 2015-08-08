@@ -1,22 +1,30 @@
 # JsonWhere
-A PHP package mainly developed for Laravel to easily set where clause for JSON.
+A PHP package mainly developed for Laravel to easily set where clause for JSON.  
+(This is for Laravel 4.2. [For Laravel 5+](https://github.com/SUKOHI/JsonWhere))
 
-Installation&settings for Laravel
-====
+Add this package name in composer.json
 
-After installation using composer, add the followings to the array in  app/config/app.php
+    "require": {
+      "sukohi/JsonWhere": "1.*"
+    }
 
-    'providers' => array(  
+Execute composer command.
+
+    composer update
+
+Register the service provider in app.php
+
+    'providers' => [
         ...Others...,  
         'Sukohi\JsonWhere\JsonWhereServiceProvider',
-    )
+    ]
 
-Also
+Also alias
 
-    'aliases' => array(  
+    'aliases' => [
         ...Others...,  
         'JsonWhere' => 'Sukohi\JsonWhere\Facades\JsonWhere',
-    )
+    ]
 
 Usage
 ====
