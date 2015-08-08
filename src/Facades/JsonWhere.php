@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Facade;
 
 class JsonWhere extends Facade {
 
-    protected static function getFacadeAccessor() { return 'json-where'; }
+    protected static function getFacadeAccessor() {
+
+        return 'json-where';
+
+    }
 
 }

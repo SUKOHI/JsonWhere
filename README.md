@@ -1,36 +1,55 @@
 # JsonWhere
-A PHP package mainly developed for Laravel to easily set where clause for JSON.
+A PHP package mainly developed for Laravel to easily set where clause for JSON.  
+(This is for Laravel 5+. [For Laravel 4.2](https://github.com/SUKOHI/JsonWhere/tree/1.0))
 
-Installation&settings for Laravel
+Installation
 ====
 
-After installation using composer, add the followings to the array in  app/config/app.php
+Add this package name in composer.json
 
-    'providers' => array(  
+    "require": {
+      "sukohi/json-where": "2.*"
+    }
+
+Execute composer command.
+
+    composer update
+
+Register the service provider in app.php
+
+    'providers' => [
         ...Others...,  
-        'Sukohi\JsonWhere\JsonWhereServiceProvider',
-    )
+        Sukohi\JsonWhere\JsonWhereServiceProvider::class,
+    ]
 
-Also
+Also alias
 
-    'aliases' => array(  
+    'aliases' => [
         ...Others...,  
-        'JsonWhere' => 'Sukohi\JsonWhere\Facades\JsonWhere',
-    )
+        'JsonWhere'   => Sukohi\JsonWhere\Facades\JsonWhere::class
+    ]
 
 Usage
 ====
 
-    $jsons = DB::table('tests')
-                ->where(function($query){
+    $jsons = DB::table('tests')->where(function($query){
 
-                    JsonWhere::query($query)
+                    \JsonWhere::query($query)
                         ->column('json')
-                        ->value(3, $type = 'auto'); // $type: auto(default)(skippable), string or int.
+                        ->value(3, $type = 'auto'); // $type: (default: auto), string or int. Optional.
 
-                })
-                ->get();
-                    
+                })->get();
+
+or You also can use model like so.  
+  
+    $jsons = \App\Test::where(function($query){
+    
+                    \JsonWhere::query($query)
+                        ->column('json')
+                        ->value(3, 'int');
+        
+                })->get();
+
 License
 ====
 This package is licensed under the MIT License.
