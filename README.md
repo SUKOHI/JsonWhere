@@ -5,7 +5,7 @@ A PHP package mainly developed for Laravel to easily set where clause for JSON.
 Add this package name in composer.json
 
     "require": {
-      "sukohi/JsonWhere": "1.*"
+      "sukohi/json-where": "1.*"
     }
 
 Execute composer command.
