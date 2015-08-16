@@ -1,6 +1,6 @@
 {
     "name": "sukohi/json-where",
-    "description": "",
+    "description": "A PHP package mainly developed for Laravel to easily set where clause for JSON.",
     "authors": [
         {
             "name": "Sukohi",
